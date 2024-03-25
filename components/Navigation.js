@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import {View, Text, Image, StyleSheet, Button} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ProfileScreen from "./ProfileScreen";
 
 const HomeScreen = () => (
     <View style={styles.screen}>
@@ -11,12 +12,6 @@ const HomeScreen = () => (
 const GalleryScreen = () => (
     <View style={styles.screen}>
         <Text>Gallery Screen</Text>
-    </View>
-);
-
-const ProfileScreen = () => (
-    <View style={styles.screen}>
-        <Text>Profile Screen</Text>
     </View>
 );
 
@@ -36,31 +31,31 @@ const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
     return (
-            <View style={styles.container}>
-                <Tab.Navigator screenOptions={screenOptions}>
-                    <Tab.Screen
-                        name="Home"
-                        component={HomeScreen}
-                        options={{
-                            tabBarIcon: HomeIcon,
-                        }}
-                    />
-                    <Tab.Screen
-                        name="Gallery"
-                        component={GalleryScreen}
-                        options={{
-                            tabBarIcon: GalleryIcon,
-                        }}
-                    />
-                    <Tab.Screen
-                        name="Profile"
-                        component={ProfileScreen}
-                        options={{
-                            tabBarIcon: ProfileIcon,
-                        }}
-                    />
-                </Tab.Navigator>
-            </View>
+        <View style={styles.container}>
+            <Tab.Navigator screenOptions={screenOptions}>
+                <Tab.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{
+                        tabBarIcon: HomeIcon,
+                    }}
+                />
+                <Tab.Screen
+                    name="Gallery"
+                    component={GalleryScreen}
+                    options={{
+                        tabBarIcon: GalleryIcon,
+                    }}
+                />
+                <Tab.Screen
+                    name="Profile"
+                    component={ProfileScreen}
+                    options={{
+                        tabBarIcon: ProfileIcon,
+                    }}
+                />
+            </Tab.Navigator>
+        </View>
     );
 };
 
@@ -71,7 +66,6 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flex: 1,
         paddingTop: 20,
-        backgroundColor: '#fff',
     },
     screen: {
         flex: 1,

@@ -13,7 +13,6 @@ return (
                     imageUrl={require('./assets/logo_zdtu.png')}
                 />
                 <Navigation />
-                {/*<Text>Open up App.js to start working on your app!</Text>*/}
                 <StatusBar style="auto" />
             </View>
         </NavigationContainer>
