@@ -25,11 +25,20 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         zIndex: 1000,
+
+        // https://ethercreative.github.io/react-native-shadow-generator/
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
     image: {
         width: 150,
         height: 50,
-        borderRadius: 25,
         marginRight: 10,
         marginTop: 15,
         marginBottom: 10
