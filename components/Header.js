@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         paddingTop: 20,
         paddingHorizontal: 20,
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#f9f9f9',
         position: 'absolute',
         top: 0,
         left: 0,
