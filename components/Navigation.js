@@ -1,14 +1,9 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, Button} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileScreen from "./ProfileScreen";
 import GalleryScreen from "./GalleryScreen";
-
-const HomeScreen = () => (
-    <View style={styles.screen}>
-        <Text>Home Screen</Text>
-    </View>
-);
+import HomeScreen from "./HomeScreen";
 
 const HomeIcon = () => (
     <Image source={require('../assets/home.png')} style={styles.tabIcon} />
