@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import Config from "../config";
 
 const HomeScreen = () => {
     const [newsData, setNewsData] = useState([]);
@@ -10,7 +11,7 @@ const HomeScreen = () => {
 
     const fetchNewsData = async () => {
         try {
-            const response = await fetch('https://raw.githubusercontent.com/dariia-ishchuk/MobileLabs/master/data/news.json?token=GHSAT0AAAAAACQDKEPH5OKTJP7GRFFGDKMKZQC2DHA');
+            const response = await fetch(Config.newsUrl);
             const data = await response.json();
             setNewsData(data);
         } catch (error) {
