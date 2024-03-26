@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ScrollView, Image, TouchableOpacity, Modal } from 'react-native';
 import Config from "../config";
+import ImageViewer from 'react-native-image-zoom-viewer';
 
 const GalleryScreen = () => {
     const [imagesData, setImagesData] = useState([]);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
     useEffect(() => {
         fetchImagesData();
@@ -19,56 +22,55 @@ const GalleryScreen = () => {
         }
     };
 
-    const chunkArray = (array, size) => {
-        return Array.from({ length: Math.ceil(array.length / size) }, (_, index) => {
-            const start = index * size;
-            return array.slice(start, start + size);
-        });
+    const openImageViewer = (index) => {
+        setSelectedImageIndex(index);
+        setModalVisible(true);
     };
 
-    const chunkedImages = chunkArray(imagesData, 2);
+    const renderImages = () => {
+        return imagesData.map((image, index) => (
+            <TouchableOpacity key={index} style={styles.card} onPress={() => openImageViewer(index)}>
+                <Image source={{ uri: image.imageUrl }} style={styles.image} />
+            </TouchableOpacity>
+        ));
+    };
 
     return (
-        <ScrollView contentContainerStyle={styles.container}>
-            {chunkedImages.map((row, rowIndex) => (
-                <View key={rowIndex} style={styles.row}>
-                    {row.map(image => (
-                        <View key={image.id} style={styles.card}>
-                            <Image source={{ uri: image.imageUrl }} style={styles.image} />
-                        </View>
-                    ))}
-                </View>
-            ))}
-        </ScrollView>
+        <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollView}>
+                {renderImages()}
+            </ScrollView>
+            <Modal visible={modalVisible} transparent={true}>
+                <ImageViewer
+                    imageUrls={imagesData.map(image => ({ url: image.imageUrl }))}
+                    index={selectedImageIndex}
+                    onCancel={() => setModalVisible(false)}
+                    enableSwipeDown={true} // Enable swipe down to close
+                    onSwipeDown={() => setModalVisible(false)} // Close modal when swiped down
+                    enableSwipeBack={true} // Enable slide back
+                />
+            </Modal>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 10,
-        paddingVertical: 15,
+        flex: 1,
     },
-    row: {
+    scrollView: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 10,
+        flexWrap: 'wrap',
+        padding: 5,
     },
     card: {
-        flex: 1,
-        aspectRatio: 4 / 3,
-        borderRadius: 8,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginHorizontal: 5,
+        width: '50%',
+        aspectRatio: 1,
+        padding: 5,
     },
     image: {
-        width: '100%',
-        height: '100%',
+        flex: 1,
         borderRadius: 8,
-    },
-    cardText: {
-        fontSize: 16,
-        fontWeight: 'bold',
     },
 });
 
