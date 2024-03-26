@@ -2,17 +2,25 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
 const GalleryScreen = () => {
-    return (
-        <ScrollView contentContainerStyle={styles.container}>
+
+    const images = [
+        { id: 1, imageUrl: require("../data/images/1.jpg") },
+        { id: 2, imageUrl: require("../data/images/2.jpg") },
+        { id: 3, imageUrl: require("../data/images/3.jpg") },
+    ];
+
+    const Images = () =>
+        images.map(image => (
             <View style={styles.row}>
                 <View style={styles.card}>
-                    <Image source={require('../data/images/1.jpg')} style={styles.image} />
-                </View>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 2</Text>
+                    <Image source={image.imageUrl} style={styles.image} />
                 </View>
             </View>
-            {/* Add more rows as needed */}
+        ));
+
+    return (
+        <ScrollView contentContainerStyle={styles.container}>
+           <Images />
         </ScrollView>
     );
 };
