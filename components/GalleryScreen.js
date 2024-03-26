@@ -26,7 +26,6 @@ const GalleryScreen = () => {
         });
     };
 
-    // Split the fetched gallery_images into rows with two gallery_images each
     const chunkedImages = chunkArray(imagesData, 2);
 
     return (

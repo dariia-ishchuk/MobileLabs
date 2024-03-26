@@ -24,21 +24,21 @@ const Navigation = () => {
         <View style={styles.container}>
             <Tab.Navigator screenOptions={screenOptions}>
                 <Tab.Screen
-                    name="Home"
+                    name="Головна"
                     component={HomeScreen}
                     options={{
                         tabBarIcon: HomeIcon,
                     }}
                 />
                 <Tab.Screen
-                    name="Gallery"
+                    name="Галерея"
                     component={GalleryScreen}
                     options={{
                         tabBarIcon: GalleryIcon,
                     }}
                 />
                 <Tab.Screen
-                    name="Profile"
+                    name="Профіль"
                     component={ProfileScreen}
                     options={{
                         tabBarIcon: ProfileIcon,

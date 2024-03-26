@@ -5,11 +5,16 @@ const ProfileScreen = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
 
     const handleRegister = () => {
         console.log('Name:', name);
         console.log('Email:', email);
         console.log('Password:', password);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setPassword2("");
     };
 
     return (
@@ -40,8 +45,8 @@ const ProfileScreen = () => {
                 <TextInput
                     style={styles.input}
                     placeholder="Пароль (ще раз)"
-                    value={password}
-                    onChangeText={setPassword}
+                    value={password2}
+                    onChangeText={setPassword2}
                     secureTextEntry
                 />
                 <TouchableOpacity style={styles.button} onPress={handleRegister}>

@@ -21,7 +21,7 @@ const HomeScreen = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.title}>Latest News</Text>
+            <Text style={styles.title}>Новини</Text>
             {newsData.map((news) => (
                 <View key={news.id} style={styles.newsContainer}>
                     <Image source={{ uri: news.imageUrl }} style={styles.newsImage} />
