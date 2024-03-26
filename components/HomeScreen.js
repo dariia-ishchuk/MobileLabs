@@ -1,52 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
 const HomeScreen = () => {
-    // Dummy news data
-    const newsData = [
-        {
-            id: 1,
-            title: 'Breaking News',
-            imageUrl: 'https://via.placeholder.com/100',
-            date: 'March 25, 2024',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut enim lobortis, feugiat massa eget, placerat turpis.',
-        },
-        {
-            id: 2,
-            title: 'Latest Update',
-            imageUrl: 'https://via.placeholder.com/100',
-            date: 'March 24, 2024',
-            description: 'Praesent et metus vel sem vehicula efficitur. Phasellus dignissim posuere magna nec malesuada.',
-        },
-        {
-            id: 3,
-            title: 'Breaking News',
-            imageUrl: 'https://via.placeholder.com/100',
-            date: 'March 25, 2024',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut enim lobortis, feugiat massa eget, placerat turpis.',
-        },
-        {
-            id: 4,
-            title: 'Latest Update',
-            imageUrl: 'https://via.placeholder.com/100',
-            date: 'March 24, 2024',
-            description: 'Praesent et metus vel sem vehicula efficitur. Phasellus dignissim posuere magna nec malesuada.',
-        },
-        {
-            id: 5,
-            title: 'Breaking News',
-            imageUrl: 'https://via.placeholder.com/100',
-            date: 'March 25, 2024',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut enim lobortis, feugiat massa eget, placerat turpis.',
-        },
-        {
-            id: 6,
-            title: 'Latest Update',
-            imageUrl: 'https://via.placeholder.com/100',
-            date: 'March 24, 2024',
-            description: 'Praesent et metus vel sem vehicula efficitur. Phasellus dignissim posuere magna nec malesuada.',
-        },
-    ];
+    const [newsData, setNewsData] = useState([]);
+
+    useEffect(() => {
+        fetchNewsData();
+    }, []);
+
+    const fetchNewsData = async () => {
+        try {
+            const response = await fetch('https://raw.githubusercontent.com/dariia-ishchuk/MobileLabs/master/data/news.json?token=GHSAT0AAAAAACQDKEPH5OKTJP7GRFFGDKMKZQC2DHA');
+            const data = await response.json();
+            setNewsData(data);
+        } catch (error) {
+            console.error('Error fetching news data:', error);
+        }
+    };
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
