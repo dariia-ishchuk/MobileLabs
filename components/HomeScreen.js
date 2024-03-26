@@ -1,8 +1,12 @@
+// HomeScreen.js
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import navigation hook
 import Config from "../config";
 
 const HomeScreen = () => {
+    const navigation = useNavigation(); // Get navigation object
+
     const [newsData, setNewsData] = useState([]);
 
     useEffect(() => {
@@ -15,22 +19,27 @@ const HomeScreen = () => {
             const data = await response.json();
             setNewsData(data);
         } catch (error) {
-            console.error('Error fetching news_images data:', error);
+            console.error('Error fetching news data:', error);
         }
+    };
+
+    const handleNewsPress = (news) => {
+        // Navigate to NewsDetailScreen and pass the selected news item as a parameter
+        navigation.navigate('NewsDetail', { news });
     };
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <Text style={styles.title}>Новини</Text>
             {newsData.map((news) => (
-                <View key={news.id} style={styles.newsContainer}>
+                <TouchableOpacity key={news.id} style={styles.newsContainer} onPress={() => handleNewsPress(news)}>
                     <Image source={{ uri: news.imageUrl }} style={styles.newsImage} />
                     <View style={styles.newsDetails}>
                         <Text numberOfLines={1} style={styles.newsTitle}>{news.title}</Text>
                         <Text style={styles.newsDate}>{news.date}</Text>
                         <Text numberOfLines={3} ellipsizeMode="tail" style={styles.newsDescription}>{news.description}</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
             ))}
         </ScrollView>
     );

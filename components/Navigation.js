@@ -1,9 +1,11 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import ProfileScreen from "./ProfileScreen";
 import GalleryScreen from "./GalleryScreen";
 import HomeScreen from "./HomeScreen";
+import NewsDetailScreen from "./NewsDetailScreen"; // Import the NewsDetailScreen component
 
 const HomeIcon = () => (
     <Image source={require('../assets/home.png')} style={styles.tabIcon} />
@@ -18,6 +20,22 @@ const ProfileIcon = () => (
 );
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator(); // Create a stack navigator for nested navigation
+
+const HomeStack = () => (
+    <Stack.Navigator>
+        <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }} // Hide header for the home screen
+        />
+        <Stack.Screen
+            name="NewsDetail"
+            component={NewsDetailScreen}
+            options={{ headerShown: false }} // Hide header for the news detail screen
+        />
+    </Stack.Navigator>
+);
 
 const Navigation = () => {
     return (
@@ -25,7 +43,7 @@ const Navigation = () => {
             <Tab.Navigator screenOptions={screenOptions}>
                 <Tab.Screen
                     name="Головна"
-                    component={HomeScreen}
+                    component={HomeStack} // Use the HomeStack as a component
                     options={{
                         tabBarIcon: HomeIcon,
                     }}
