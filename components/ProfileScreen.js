@@ -14,37 +14,40 @@ const ProfileScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Реєстрація</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Ім'я"
-                value={name}
-                onChangeText={setName}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Емайл"
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Пароль"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Пароль (ще раз)"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            <TouchableOpacity style={styles.button} onPress={handleRegister}>
-                <Text style={styles.buttonText}>Зареєструватися</Text>
-            </TouchableOpacity>
+            <View style={styles.formContainer}>
+
+                <Text style={styles.title}>Реєстрація</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Ім'я"
+                    value={name}
+                    onChangeText={setName}
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Емайл"
+                    value={email}
+                    onChangeText={setEmail}
+                    keyboardType="email-address"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Пароль"
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Пароль (ще раз)"
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry
+                />
+                <TouchableOpacity style={styles.button} onPress={handleRegister}>
+                    <Text style={styles.buttonText}>Зареєструватися</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -53,8 +56,24 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
+    },
+    formContainer: {
         alignItems: 'center',
-        paddingHorizontal: 20,
+        paddingHorizontal: 15,
+        paddingVertical: 15,
+        marginHorizontal: 15,
+        backgroundColor: '#f9f9f9',
+        borderRadius: 8,
+
+        // https://ethercreative.github.io/react-native-shadow-generator/
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
     input: {
         height: 40,
