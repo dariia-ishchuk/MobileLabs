@@ -69,12 +69,13 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         paddingHorizontal: 10,
-        paddingTop: 20,
+        paddingVertical: 10,
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginTop: 15,
+        marginBottom: 15
     },
     newsContainer: {
         flexDirection: 'row',
@@ -83,6 +84,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#f9f9f9',
         borderRadius: 8,
         overflow: 'hidden',
+
+        // https://ethercreative.github.io/react-native-shadow-generator/
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
+        elevation: 2,
     },
     newsImage: {
         width: 120,
