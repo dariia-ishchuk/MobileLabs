@@ -2,16 +2,11 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, Button} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ProfileScreen from "./ProfileScreen";
+import GalleryScreen from "./GalleryScreen";
 
 const HomeScreen = () => (
     <View style={styles.screen}>
         <Text>Home Screen</Text>
-    </View>
-);
-
-const GalleryScreen = () => (
-    <View style={styles.screen}>
-        <Text>Gallery Screen</Text>
     </View>
 );
 
@@ -80,6 +75,7 @@ const styles = StyleSheet.create({
 
 const screenOptions = {
     tabBarStyle:{
+        backgroundColor: '#f9f9f9',
         height: 60,
     },
     tabBarItemStyle:{
