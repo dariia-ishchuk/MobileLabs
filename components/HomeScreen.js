@@ -26,7 +26,7 @@ const HomeScreen = () => {
                 <View key={news.id} style={styles.newsContainer}>
                     <Image source={{ uri: news.imageUrl }} style={styles.newsImage} />
                     <View style={styles.newsDetails}>
-                        <Text style={styles.newsTitle}>{news.title}</Text>
+                        <Text numberOfLines={1} style={styles.newsTitle}>{news.title}</Text>
                         <Text style={styles.newsDate}>{news.date}</Text>
                         <Text numberOfLines={3} ellipsizeMode="tail" style={styles.newsDescription}>{news.description}</Text>
                     </View>
