@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ProfileScreen from "./ProfileScreen";
 import GalleryScreen from "./GalleryScreen";
 import HomeScreen from "./HomeScreen";
-import NewsDetailScreen from "./NewsDetailScreen"; // Import the NewsDetailScreen component
+import NewsDetailScreen from "./NewsDetailScreen";
 
 const HomeIcon = () => (
     <Image source={require('../assets/home.png')} style={styles.tabIcon} />
@@ -20,19 +20,19 @@ const ProfileIcon = () => (
 );
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator(); // Create a stack navigator for nested navigation
+const Stack = createStackNavigator();
 
 const HomeStack = () => (
     <Stack.Navigator>
         <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ headerShown: false }} // Hide header for the home screen
+            options={{ headerShown: false }}
         />
         <Stack.Screen
             name="NewsDetail"
             component={NewsDetailScreen}
-            options={{ headerShown: false }} // Hide header for the news detail screen
+            options={{ headerShown: false }}
         />
     </Stack.Navigator>
 );
@@ -43,7 +43,7 @@ const Navigation = () => {
             <Tab.Navigator screenOptions={screenOptions}>
                 <Tab.Screen
                     name="Головна"
-                    component={HomeStack} // Use the HomeStack as a component
+                    component={HomeStack}
                     options={{
                         tabBarIcon: HomeIcon,
                     }}

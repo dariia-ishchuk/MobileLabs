@@ -45,9 +45,8 @@ const GalleryScreen = () => {
                     imageUrls={imagesData.map(image => ({ url: image.imageUrl }))}
                     index={selectedImageIndex}
                     onCancel={() => setModalVisible(false)}
-                    enableSwipeDown={true} // Enable swipe down to close
-                    onSwipeDown={() => setModalVisible(false)} // Close modal when swiped down
-                    enableSwipeBack={true} // Enable slide back
+                    enableSwipeDown={true}
+                    onSwipeDown={() => setModalVisible(false)}
                 />
             </Modal>
         </View>

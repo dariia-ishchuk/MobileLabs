@@ -1,11 +1,10 @@
-// HomeScreen.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import navigation hook
+import { useNavigation } from '@react-navigation/native';
 import Config from "../config";
 
 const HomeScreen = () => {
-    const navigation = useNavigation(); // Get navigation object
+    const navigation = useNavigation();
 
     const [newsData, setNewsData] = useState([]);
 
@@ -24,7 +23,6 @@ const HomeScreen = () => {
     };
 
     const handleNewsPress = (news) => {
-        // Navigate to NewsDetailScreen and pass the selected news item as a parameter
         navigation.navigate('NewsDetail', { news });
     };
 
