@@ -1,57 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
 const GalleryScreen = () => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.row}>
                 <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 1</Text>
+                    <Image source={require('../data/images/1.jpg')} style={styles.image} />
                 </View>
                 <View style={styles.card}>
                     <Text style={styles.cardText}>Picture 2</Text>
                 </View>
             </View>
-            <View style={styles.row}>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 3</Text>
-                </View>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 4</Text>
-                </View>
-            </View>
-            <View style={styles.row}>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 5</Text>
-                </View>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 6</Text>
-                </View>
-            </View>
-            <View style={styles.row}>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 7</Text>
-                </View>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 8</Text>
-                </View>
-            </View>
-            <View style={styles.row}>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 9</Text>
-                </View>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 10</Text>
-                </View>
-            </View>
-            <View style={styles.row}>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 11</Text>
-                </View>
-                <View style={styles.card}>
-                    <Text style={styles.cardText}>Picture 12</Text>
-                </View>
-            </View>
+            {/* Add more rows as needed */}
         </ScrollView>
     );
 };
@@ -83,6 +44,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.20,
         shadowRadius: 1.41,
         elevation: 2,
+    },
+    image: {
+        width: '100%', // Make the image width 100% of its container
+        height: '100%', // Make the image height 100% of its container
+        borderRadius: 8,
     },
     cardText: {
         fontSize: 16,
