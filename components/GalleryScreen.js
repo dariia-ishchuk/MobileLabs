@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, ScrollView, Image } from 'react-native';
 import Config from "../config";
 
 const GalleryScreen = () => {
-
     const [imagesData, setImagesData] = useState([]);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const GalleryScreen = () => {
             const data = await response.json();
             setImagesData(data);
         } catch (error) {
-            console.error('Error fetching news data:', error);
+            console.error('Error fetching images data:', error);
         }
     };
 
@@ -27,33 +26,20 @@ const GalleryScreen = () => {
         });
     };
 
+    // Split the fetched images into rows with two images each
     const chunkedImages = chunkArray(imagesData, 2);
-
-    const rows = [];
-    for (let i = 0; i < chunkedImages.length; i++) {
-        const row = chunkedImages[i];
-        const rowItems = [];
-        for (let j = 0; j < row.length; j++) {
-            const image = row[j];
-            rowItems.push(
-                <View key={image.id} style={styles.card}>
-                    <Image source={{ uri: image.imageUrl }} style={styles.image} />
-                </View>
-            );
-        }
-        if (row.length === 1) {
-            rowItems.push(<View key={'empty'} style={styles.card} />);
-        }
-        rows.push(
-            <View key={i} style={styles.row}>
-                {rowItems}
-            </View>
-        );
-    }
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            {rows}
+            {chunkedImages.map((row, rowIndex) => (
+                <View key={rowIndex} style={styles.row}>
+                    {row.map(image => (
+                        <View key={image.id} style={styles.card}>
+                            <Image source={{ uri: image.imageUrl }} style={styles.image} />
+                        </View>
+                    ))}
+                </View>
+            ))}
         </ScrollView>
     );
 };
