@@ -15,7 +15,7 @@ const GalleryScreen = () => {
             const data = await response.json();
             setImagesData(data);
         } catch (error) {
-            console.error('Error fetching images data:', error);
+            console.error('Error fetching gallery_images data:', error);
         }
     };
 
@@ -26,7 +26,7 @@ const GalleryScreen = () => {
         });
     };
 
-    // Split the fetched images into rows with two images each
+    // Split the fetched gallery_images into rows with two gallery_images each
     const chunkedImages = chunkArray(imagesData, 2);
 
     return (

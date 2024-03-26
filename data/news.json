@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "title": "Новина 1",
-    "imageUrl": "https://via.placeholder.com/100",
-    "date": "25 березня, 2024",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut enim lobortis, feugiat massa eget, placerat turpis."
+    "title": "Зустріч студентів Житомирської політехніки з керівником групи ІТ компаній Sana Commerce, valantic, Easygenerator",
+    "imageUrl": "https://news.ztu.edu.ua/wp-content/uploads/2024/03/frame-18526-11.jpg",
+    "date": "26.03.2024",
+    "description": "20.03.2024 року студенти 3-го курсу спеціальності 121 “Інженерія програмного забезпечення” поспілкувались з директором групи ІТ компаній Sana Commerce, Easygenerator та Valantic Дмитром Антонюком."
   },
   {
     "id": 2,

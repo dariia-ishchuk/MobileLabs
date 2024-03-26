@@ -15,7 +15,7 @@ const HomeScreen = () => {
             const data = await response.json();
             setNewsData(data);
         } catch (error) {
-            console.error('Error fetching news data:', error);
+            console.error('Error fetching news_images data:', error);
         }
     };
 
