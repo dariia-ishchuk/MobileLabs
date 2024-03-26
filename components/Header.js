@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const Header = ({ title, imageUrl }) => {
+const Header = ({ title, subTitle, imageUrl }) => {
     return (
         <View style={styles.headerContainer}>
             <Image source={imageUrl} style={styles.image} resizeMode="contain"/>
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>{title}</Text>
+                <Text style={styles.subTitle}>{subTitle}</Text>
             </View>
         </View>
     );
@@ -48,8 +49,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     title: {
+        paddingTop: 15,
         fontSize: 17,
         fontWeight: 'bold',
+    },
+    subTitle: {
+        fontSize: 14,
     }
 });
 

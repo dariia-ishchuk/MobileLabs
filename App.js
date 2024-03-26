@@ -10,6 +10,7 @@ return (
             <View style={styles.container}>
                 <Header
                     title="Лабораторна робота 1"
+                    subTitle="Іщук Дарія ІПЗ-20-3"
                     imageUrl={require('./assets/logo_zdtu.png')}
                 />
                 <Navigation />
