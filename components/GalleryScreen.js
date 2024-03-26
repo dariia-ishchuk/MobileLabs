@@ -1,14 +1,24 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import Config from "../config";
 
 const GalleryScreen = () => {
 
-    const images = [
-        { id: 1, imageUrl: require("../data/images/1.jpg") },
-        { id: 2, imageUrl: require("../data/images/2.jpg") },
-        { id: 3, imageUrl: require("../data/images/3.jpg") },
-        // Add more images here
-    ];
+    const [imagesData, setImagesData] = useState([]);
+
+    useEffect(() => {
+        fetchImagesData();
+    }, []);
+
+    const fetchImagesData = async () => {
+        try {
+            const response = await fetch(Config.galleryUrl);
+            const data = await response.json();
+            setImagesData(data);
+        } catch (error) {
+            console.error('Error fetching news data:', error);
+        }
+    };
 
     const chunkArray = (array, size) => {
         return Array.from({ length: Math.ceil(array.length / size) }, (_, index) => {
@@ -17,7 +27,7 @@ const GalleryScreen = () => {
         });
     };
 
-    const chunkedImages = chunkArray(images, 2);
+    const chunkedImages = chunkArray(imagesData, 2);
 
     const rows = [];
     for (let i = 0; i < chunkedImages.length; i++) {
@@ -27,7 +37,7 @@ const GalleryScreen = () => {
             const image = row[j];
             rowItems.push(
                 <View key={image.id} style={styles.card}>
-                    <Image source={image.imageUrl} style={styles.image} />
+                    <Image source={{ uri: image.imageUrl }} style={styles.image} />
                 </View>
             );
         }

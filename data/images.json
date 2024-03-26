@@ -1,6 +1,10 @@
 [
   {
     "id": 1,
-    "imageUrl": "https://via.placeholder.com/100"
+    "imageUrl": "https://github.com/dariia-ishchuk/MobileLabs/blob/master/data/images/1.jpg?raw=true"
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://github.com/dariia-ishchuk/MobileLabs/blob/master/data/images/2.jpg?raw=true"
   }
 ]
